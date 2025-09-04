@@ -1,0 +1,12 @@
+﻿{
+  "name": "com.craigiswayne.command-line-builder",
+  "version": "0.0.1",
+  "displayName": "Build from command line",
+  "description": "A set of tools for building Unity projects from the command line.",
+  "dependencies": {},
+  "unity": "6.0",
+  "author": {
+    "name": "Craig Wayne",
+    "email": "craigiswayne@gmail.com"
+  }
+}
