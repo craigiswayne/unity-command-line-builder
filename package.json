@@ -1,12 +1,25 @@
 ﻿{
   "name": "com.craigiswayne.command-line-builder",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "displayName": "Command Line Builder",
   "description": "A set of tools for building Unity projects from the command line.",
   "dependencies": {},
   "unity": "6.0",
   "author": {
     "name": "Craig Wayne",
-    "email": "craigiswayne@gmail.com"
-  }
+    "email": "craigiswayne@gmail.com",
+    "url": "https://craigiswayne.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:craigiswayne/unity-command-line-builder.git"
+  },
+  "homepage": "https://github.com/craigiswayne/unity-command-line-builder",
+  "keywords": [
+    "command line",
+    "build",
+    "automation",
+    "ci",
+    "cd"
+  ]
 }
