@@ -33,6 +33,12 @@ project_directory=$(pwd);
 
 ## Installing in Unity
 
+### Method 1: From git
+1. Open Package Manager
+2. Click `Add package from git URL`
+3. Enter `https://github.com/craigiswayne/command-line-builder.git`
+4. Click `Add`
+
 ### Method 2: From disk
 1. clone down project to your device
 2. open package manager
