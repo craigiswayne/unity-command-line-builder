@@ -1,7 +1,7 @@
 ﻿{
   "name": "com.craigiswayne.command-line-builder",
-  "version": "0.0.1",
-  "displayName": "Build from command line",
+  "version": "0.0.2",
+  "displayName": "Command Line Builder",
   "description": "A set of tools for building Unity projects from the command line.",
   "dependencies": {},
   "unity": "6.0",
