@@ -25,9 +25,19 @@ public class CommandLineBuild
                 return;
             }
 
-            // Get the build target and output path from helper methods.
             var buildTarget = GetBuildTarget();
             var outputPath = GetArgument("-outputPath");
+
+            var bundleVersion = GetArgument("-bundleVersion");
+
+            if (string.IsNullOrEmpty(bundleVersion))
+            {
+                DateTime now = DateTime.Now;
+                string timestamp = now.ToString("yyyyMMddHHmm");
+                bundleVersion = timestamp;
+            }
+
+            PlayerSettings.bundleVersion = bundleVersion;
 
             // If the output path is not provided, log an error and exit.
             if (string.IsNullOrEmpty(outputPath))
@@ -36,7 +46,7 @@ public class CommandLineBuild
                 EditorApplication.Exit(1);
                 return;
             }
-            
+
             // --- Apply Custom Settings Based on Command-Line Flags ---
 
             // Check for the -compressionMode flag and apply settings for WebGL.
@@ -92,7 +102,7 @@ public class CommandLineBuild
                 EditorApplication.Exit(1); // Exit with an error code.
             }
         }
-        
+
         private static string[] GetScenesToBuild()
         {
             var sceneListArg = GetArgument("-sceneList");
@@ -102,17 +112,15 @@ public class CommandLineBuild
                 // Split the comma-separated string into an array of scene paths.
                 return sceneListArg.Split(',');
             }
-            else
-            {
-                Debug.Log("CommandLineBuild: No -sceneList argument provided. Using enabled scenes from Build Settings.");
-                // Get all scenes listed and enabled in the Build Settings.
-                return EditorBuildSettings.scenes
-                    .Where(s => s.enabled)
-                    .Select(s => s.path)
-                    .ToArray();
-            }
+
+            Debug.Log("CommandLineBuild: No -sceneList argument provided. Using enabled scenes from Build Settings.");
+            // Get all scenes listed and enabled in the Build Settings.
+            return EditorBuildSettings.scenes
+                .Where(s => s.enabled)
+                .Select(s => s.path)
+                .ToArray();
         }
-        
+
         private static string GetArgument(string name)
         {
             var args = System.Environment.GetCommandLineArgs();
@@ -125,11 +133,11 @@ public class CommandLineBuild
             }
             return null;
         }
-        
+
         private static BuildTarget GetBuildTarget()
         {
             const BuildTarget fallbackBuildTarget = BuildTarget.WebGL;
-            
+
             var buildTargetString = GetArgument("-buildTarget");
             if (string.IsNullOrEmpty(buildTargetString))
             {
@@ -146,7 +154,7 @@ public class CommandLineBuild
             Debug.LogError($"CommandLineBuild: Invalid build target: {buildTargetString}. Defaulting to WebGL.");
             return fallbackBuildTarget;
         }
-        
+
         // New helper function to parse the compression format for WebGL.
         private static WebGLCompressionFormat GetWebGLCompressionFormat(string compressionMode)
         {

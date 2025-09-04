@@ -13,6 +13,7 @@
 | outputPath      |                                                          |                                                      |                                                                                                |
 | timestamps      |                                                          |                                                      |                                                                                                |
 | logFile         |                                                          |                                                      |                                                                                                |
+| bundleVersion   |                                                          | will use a timestamp in the format `YYYYMMddhhmm`     |                                                                                                |
 
 
 ## Build from CLI
