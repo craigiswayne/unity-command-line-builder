@@ -29,7 +29,8 @@ project_directory=$(pwd);
 -executeMethod CommandLineBuild.Build \
 -outputPath "$project_directory/build" \
 -timestamps \
--logFile "$project_directory/build.log"
+-logFile "$project_directory/build.log" \
+-compressionMode brotli
 ```
 
 ## Installing in Unity
